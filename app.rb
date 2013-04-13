@@ -12,7 +12,7 @@ post '/lingr' do
   ret = ""
   json["events"].each do |e|
     text = e['message']['text']
-    if text =~ /^(突然の.+)$/
+    if text =~ /^(突然の.+)$/ || text =~ /^>(.+)<$/
       ret = $1.sudden_death
     end
   end
