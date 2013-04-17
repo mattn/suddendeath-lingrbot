@@ -14,6 +14,8 @@ post '/lingr' do
     text = e['message']['text']
     if text =~ /^(突然の.+)$/ || text =~ /^>(.+)<$/
       ret = $1.sudden_death
+    elsif text =~ /^<(.+)>$/
+      ret = "#{$1} ... ってじっちゃんが言ってた"
     end
   end
   ret.rstrip
