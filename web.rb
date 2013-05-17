@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-require 'json'
-require 'sinatra'
-require 'sudden_death'
+require 'bundler'
+Dir.chdir File.dirname(__FILE__)
+Bundler.require
+set :environment, :production
 
 get '/' do
   "hello"
