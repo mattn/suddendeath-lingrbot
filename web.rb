@@ -13,9 +13,20 @@ post '/lingr' do
   ret = ""
   json["events"].each do |e|
     text = e['message']['text']
-    if text =~ /^(突然の.+)$/ || text =~ /^>(.+)<$/
-      ret = $1.sudden_death
-    elsif text =~ /^<(.+)>$/
+    case text
+    when /^(突然の)*(突然の.+)$/
+      ret = $2
+      ("#{$1}".length/3+1).times do
+        ret = ret.sudden_death 
+      end
+    when /^(>+)(.+?)(<+)$/m
+      if "#{$1}".length == "#{$3}".length
+        ret = $2
+        $1.length.times do
+          ret = ret.sudden_death 
+        end
+      end
+    when /^<(.+)>$/
       ret = "#{$1} ... ってじっちゃんが言ってた"
     end
   end
