@@ -5,7 +5,11 @@ Bundler.require
 set :environment, :production
 
 get '/' do
-  "hello"
+  "突然の死"
+end
+
+get '/:text' do
+  "<title>\n#{params[:text].sudden_death.rstrip}</title>"
 end
 
 post '/lingr' do
