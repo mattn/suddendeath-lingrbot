@@ -32,7 +32,7 @@ post '/lingr' do
           ret = ret.sudden_death 
         end
       end
-    when /^<(.+)>$/
+    when /^<([^a-zA-Z0-9>]+)>$/
       ret = "#{$1} ... ってじっちゃんが言ってた"
     end
   end
