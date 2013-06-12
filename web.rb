@@ -20,7 +20,7 @@ post '/lingr' do
   json["events"].each do |e|
     text = e['message']['text']
     case text
-    when /^(突然の)*(突然の.+)$/
+    when /^((?:突然の)*)(突然の.+)$/
       ret = $2
       ("#{$1}".length/3+1).times do
         ret = ret.sudden_death 
