@@ -33,7 +33,11 @@ post '/lingr' do
         end
       end
     when /^<([^a-zA-Z0-9>]+)>$/
-      ret = "#{$1} ... ってじっちゃんが言ってた"
+      if 1 == rand(2)
+        ret = "#{$1} ... ってじっちゃんが言ってた"
+      else
+        red = ".｡oO(#{$1})"
+      end
     end
   end
   ret.rstrip
