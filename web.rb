@@ -33,7 +33,7 @@ post '/lingr' do
         end
       end
     when /^<([^a-zA-Z0-9>]+)>$/
-      ret = "#{$1} ... ってじっちゃんが言ってた"
+      ret = ".｡oO(#{$1})"
     end
   end
   ret.rstrip
